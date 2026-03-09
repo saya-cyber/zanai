@@ -1,16 +1,18 @@
-import { defineConfig } from 'vite';
-import path from 'path';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import path from 'path'
+import tailwindcss from '@tailwindcss/vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
+  base: './', // Осы жолды қосыңыз
   plugins: [
-    react(), // React плагині қалды
-    // tailwindcss() жолын алып тастадық, енді PostCSS арқылы іске қосылады
+    react(),
+    tailwindcss(),
   ],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'), // @ = src
+      '@': path.resolve(__dirname, './src'),
     },
   },
-  assetsInclude: ['**/*.svg', '**/*.csv'], // raw импорттар
-});
+  assetsInclude: ['**/*.svg', '**/*.csv'],
+})
